@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Phone, Menu, X } from 'lucide-react'
 import { PHONE_NUMBER, PHONE_LINK, IMAGES } from '../data/constants'
+import PlumbingLogo from './PlumbingLogo'
+
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -33,19 +35,23 @@ export default function Header() {
 
       {/* Main header */}
       <div className="container-max px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24 md:h-28">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <img 
-              src={IMAGES.logo}
-              alt="EMS Enterprises Logo" 
-              className="h-14 w-auto"
-            />
-            <div className="hidden sm:block">
-              <div className="text-xl font-heading font-bold text-navy">EMS Enterprises</div>
-              <div className="text-xs text-gray-600 tracking-wide">Plumbing & Mechanical</div>
+          <Link to="/" className="flex items-center gap-4 group">
+            <div className="relative">
+              <img
+                src={IMAGES.logo}
+                alt="EMS Enterprises Logo"
+                className="h-20 md:h-24 w-auto rounded-md shadow-rugged group-hover:scale-105 transition-transform duration-300 border-2 border-navy/10"
+              />
+              <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-rust rounded-full border-2 border-white shadow" />
+            </div>
+            <div className="hidden sm:flex flex-col justify-center">
+              <div className="text-2xl font-heading font-bold text-navy leading-none">EMS Enterprises</div>
+              <PlumbingLogo size="sm" className="text-navy mt-1" />
             </div>
           </Link>
+
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">

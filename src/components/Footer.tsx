@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { PHONE_NUMBER, PHONE_LINK, PLUMBER_LICENSE, BUSINESS_HOURS, IMAGES } from '../data/constants'
+import PlumbingLogo from './PlumbingLogo'
 
 export default function Footer() {
   return (
-    <footer className="bg-navy text-white">
+    <footer className="bg-navy text-white texture-hatch relative">
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-rust via-accent to-rust" />
       <div className="container-max px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -13,13 +15,14 @@ export default function Footer() {
               <img 
                 src={IMAGES.logo}
                 alt="EMS Enterprises Logo" 
-                className="h-12 w-auto"
+                className="h-16 w-auto rounded-md shadow-rugged border-2 border-white/10"
               />
               <div>
-                <div className="font-heading font-bold">EMS Enterprises</div>
-                <div className="text-xs text-gray-400">Plumbing & Mechanical</div>
+                <div className="font-heading font-bold text-lg">EMS Enterprises</div>
+                <PlumbingLogo size="sm" animated={false} className="text-gray-300 mt-1" />
               </div>
             </div>
+
             <p className="text-gray-400 text-sm mb-4">
               Licensed plumbing and mechanical contractor serving Cape Cod and Barnstable County for over 15 years.
             </p>
