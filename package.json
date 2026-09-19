@@ -11,6 +11,7 @@
     "cf:login": "wrangler login"
   },
   "dependencies": {
+    "gsap": "3.12.5",
     "lucide-react": "^0.294.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

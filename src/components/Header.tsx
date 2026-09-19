@@ -45,9 +45,9 @@ export default function Header() {
               />
               <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-rust rounded-full border-2 border-charcoal shadow" />
             </div>
-            <div className="hidden sm:flex flex-col justify-center">
+            <div className="hidden lg:flex flex-col justify-center">
               <div className="text-2xl font-heading font-bold text-white leading-none tracking-wide">EMS ENTERPRISES</div>
-              <PlumbingLogo size="lg" className="text-gray-300 mt-1" />
+              <PlumbingLogo size="lg" className="text-white mt-1" />
             </div>
           </Link>
 
