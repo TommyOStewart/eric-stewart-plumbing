@@ -6,10 +6,11 @@ export default function About() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-navy text-white py-16 md:py-20">
-        <div className="container-max px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">About EMS Enterprises</h1>
+      <section className="bg-charcoal texture-grid text-white py-16 md:py-24 relative overflow-hidden">
+        <div className="container-max px-4 sm:px-6 lg:px-8 relative">
+          <div className="max-w-2xl reveal">
+            <span className="section-label">Our Story</span>
+            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6">About EMS Enterprises</h1>
             <p className="text-xl text-gray-300">
               A licensed plumbing and mechanical contractor with over {YEARS_IN_BUSINESS} years of experience serving Cape Cod and Barnstable County.
             </p>
@@ -18,21 +19,22 @@ export default function About() {
       </section>
 
       {/* Main Content */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-charcoal-light texture-hatch clip-diagonal-both">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="reveal">
               <img
                 src={IMAGES.about}
                 alt="Our team at work"
-                className="rounded-lg shadow-lg w-full"
+                className="rounded-lg shadow-rugged-lg w-full border border-charcoal-border"
               />
             </div>
-            <div>
-              <h2 className="text-3xl font-heading font-bold text-gray-900 mb-6">
+            <div className="reveal reveal-delay-1">
+              <span className="section-label">Who We Are</span>
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6">
                 Cape Cod's Trusted Plumbing & Mechanical Contractor
               </h2>
-              <div className="space-y-4 text-gray-700">
+              <div className="space-y-4 text-gray-300">
                 <p>
                   EMS Enterprises was founded with a simple mission: provide honest, reliable plumbing and mechanical services that we'd want for our own homes.
                 </p>
@@ -49,11 +51,14 @@ export default function About() {
       </section>
 
       {/* Credentials */}
-      <section className="section-padding bg-gray-50">
+      <section className="section-padding bg-charcoal">
         <div className="container-max">
-          <h2 className="text-3xl font-heading font-bold text-gray-900 text-center mb-12">
-            Credentials & Qualifications
-          </h2>
+          <div className="text-center mb-12 reveal">
+            <span className="section-label">Credentials</span>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">
+              Credentials & Qualifications
+            </h2>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
@@ -77,12 +82,12 @@ export default function About() {
                 desc: 'Complete liability coverage'
               }
             ].map((item, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 text-center border border-gray-200">
-                <div className="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-7 h-7 text-accent" />
+              <div key={index} className={`card p-6 text-center reveal reveal-delay-${index + 1}`}>
+                <div className="w-14 h-14 bg-rust/15 border border-rust/40 rounded-full flex items-center justify-center mx-auto mb-4 icon-hover">
+                  <item.icon className="w-7 h-7 text-rust-light" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
+                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-gray-400 text-sm">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -90,11 +95,12 @@ export default function About() {
       </section>
 
       {/* Values */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-charcoal-light texture-grid clip-diagonal-both">
         <div className="container-max">
-          <div className="max-w-2xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold text-gray-900 mb-4">How We Work</h2>
-            <p className="text-lg text-gray-600">
+          <div className="max-w-2xl mx-auto text-center mb-12 reveal">
+            <span className="section-label">How We Operate</span>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">How We Work</h2>
+            <p className="text-lg text-gray-400">
               Every job, big or small, gets the same commitment to quality and customer service.
             </p>
           </div>
@@ -116,12 +122,12 @@ export default function About() {
                 desc: 'We use quality materials and proven techniques. Our work is guaranteed because we do it right.'
               }
             ].map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="w-14 h-14 bg-navy rounded flex items-center justify-center mx-auto mb-4">
+              <div key={index} className={`text-center reveal reveal-delay-${index + 1}`}>
+                <div className="w-14 h-14 bg-rust rounded flex items-center justify-center mx-auto mb-4 shadow-rugged icon-hover">
                   <item.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
+                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-gray-400 text-sm">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -129,9 +135,9 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="bg-navy text-white py-16">
-        <div className="container-max px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-heading font-bold mb-4">Ready to Work Together?</h2>
+      <section className="bg-charcoal texture-hatch text-white py-16">
+        <div className="container-max px-4 sm:px-6 lg:px-8 text-center reveal">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Ready to Work Together?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Whether you have an emergency or need to schedule routine service, we're here to help.
           </p>
@@ -140,7 +146,7 @@ export default function About() {
               <Phone className="w-5 h-5" />
               Call {PHONE_NUMBER}
             </a>
-            <Link to="/contact" className="btn-outline border-white text-white hover:bg-white hover:text-navy text-lg">
+            <Link to="/contact" className="btn-outline text-lg">
               <Calendar className="w-5 h-5" />
               Request a Quote
             </Link>

@@ -18,14 +18,21 @@ export default {
           light: '#2d4a6f'
         },
         rust: {
-          DEFAULT: '#B45309',
-          hover: '#92400E',
-          light: '#D97706'
+          DEFAULT: '#C2660D',
+          hover: '#9A4E08',
+          light: '#EA8A22'
         },
         steel: {
           DEFAULT: '#4b5563',
           dark: '#374151',
           light: '#9ca3af'
+        },
+        // Dark industrial theme tokens
+        charcoal: {
+          DEFAULT: '#121417',
+          light: '#1a1d22',
+          lighter: '#23272e',
+          border: '#2f343c'
         }
       },
       fontFamily: {
@@ -33,33 +40,46 @@ export default {
         heading: ['Georgia', 'serif']
       },
       boxShadow: {
-        'rugged': '0 4px 6px -1px rgba(0,0,0,0.3), 0 10px 20px -5px rgba(0,0,0,0.2), inset 0 1px 0 0 rgba(255,255,255,0.05)',
-        'rugged-lg': '0 10px 25px -5px rgba(0,0,0,0.35), 0 20px 40px -10px rgba(0,0,0,0.25)',
-        'inset-groove': 'inset 0 2px 4px 0 rgba(0,0,0,0.25)'
+        'rugged': '0 4px 6px -1px rgba(0,0,0,0.4), 0 10px 20px -5px rgba(0,0,0,0.3), inset 0 1px 0 0 rgba(255,255,255,0.04)',
+        'rugged-lg': '0 10px 30px -5px rgba(0,0,0,0.5), 0 25px 50px -12px rgba(0,0,0,0.4)',
+        'inset-groove': 'inset 0 2px 4px 0 rgba(0,0,0,0.3)',
+        'glow-rust': '0 0 0 1px rgba(194,102,13,0.35), 0 8px 24px -4px rgba(194,102,13,0.25)'
       },
       keyframes: {
-        drip: {
-          '0%': { transform: 'translateY(0)', opacity: '1' },
-          '70%': { opacity: '1' },
-          '100%': { transform: 'translateY(18px)', opacity: '0' }
+        dripOnce: {
+          '0%': { transform: 'translateY(0)', opacity: '0' },
+          '8%': { opacity: '1' },
+          '92%': { opacity: '1' },
+          '100%': { transform: 'translateY(26px)', opacity: '0' }
         },
-        splash: {
-          '0%': { transform: 'scale(0)', opacity: '0.8' },
-          '100%': { transform: 'scale(1.6)', opacity: '0' }
+        splashOnce: {
+          '0%': { transform: 'scale(0)', opacity: '0' },
+          '88%': { opacity: '0' },
+          '92%': { transform: 'scale(0.3)', opacity: '0.9' },
+          '100%': { transform: 'scale(1.8)', opacity: '0' }
         },
-        wrenchTighten: {
-          '0%': { transform: 'rotate(-35deg) translateX(6px)' },
-          '35%': { transform: 'rotate(-35deg) translateX(6px)' },
-          '55%': { transform: 'rotate(10deg) translateX(0)' },
-          '70%': { transform: 'rotate(-5deg) translateX(0)' },
-          '85%': { transform: 'rotate(3deg) translateX(0)' },
-          '100%': { transform: 'rotate(0deg) translateX(0)' }
+        valveClose: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(180deg)' }
         },
-        steamPuff: {
-          '0%': { transform: 'translateY(0) scale(0.5)', opacity: '0' },
-          '20%': { opacity: '0.8' },
-          '100%': { transform: 'translateY(-20px) scale(1.3)', opacity: '0' }
+        ratchetTighten: {
+          '0%':   { transform: 'rotate(0deg)' },
+          '18%':  { transform: 'rotate(24deg)' },
+          '30%':  { transform: 'rotate(6deg)' },
+          '48%':  { transform: 'rotate(6deg)' },
+          '66%':  { transform: 'rotate(28deg)' },
+          '78%':  { transform: 'rotate(2deg)' },
+          '100%': { transform: 'rotate(0deg)' }
         },
+
+        sparkPop: {
+          '0%': { transform: 'scale(0)', opacity: '0' },
+          '80%': { transform: 'scale(0)', opacity: '0' },
+          '88%': { transform: 'scale(1.2)', opacity: '1' },
+          '100%': { transform: 'scale(0.4)', opacity: '0' }
+        },
+
+
         wiggle: {
           '0%, 100%': { transform: 'rotate(0deg)' },
           '25%': { transform: 'rotate(-8deg)' },
@@ -70,7 +90,7 @@ export default {
           '100%': { transform: 'translateX(250%) skewX(-20deg)' }
         },
         fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(24px)' },
+          '0%': { opacity: '0', transform: 'translateY(28px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' }
         },
         floatSlow: {
@@ -79,18 +99,21 @@ export default {
         }
       },
       animation: {
-        drip: 'drip 3.2s ease-in infinite',
-        splash: 'splash 3.2s ease-out infinite',
-        wrenchTighten: 'wrenchTighten 3.2s ease-in-out infinite',
-        steamPuff: 'steamPuff 3.2s ease-out infinite',
+        dripOnce: 'dripOnce 3.2s ease-in 1',
+        splashOnce: 'splashOnce 3.2s ease-out 1',
+        valveClose: 'valveClose 2.6s cubic-bezier(0.65, 0, 0.35, 1) 1',
+        ratchetTighten: 'ratchetTighten 3.2s cubic-bezier(0.45, 0, 0.4, 1) 1',
+        sparkPop: 'sparkPop 3.2s ease-out 1',
+
         wiggle: 'wiggle 0.5s ease-in-out',
         shine: 'shine 1.2s ease-in-out',
         fadeUp: 'fadeUp 0.7s ease-out forwards',
         floatSlow: 'floatSlow 4s ease-in-out infinite'
       },
+
       backgroundImage: {
         'brushed-steel': 'repeating-linear-gradient(115deg, rgba(255,255,255,0.035) 0px, rgba(255,255,255,0.035) 1px, transparent 1px, transparent 3px)',
-        'diagonal-hatch': 'repeating-linear-gradient(45deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 1px, transparent 1px, transparent 10px)',
+        'diagonal-hatch': 'repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 10px)',
         'blueprint-grid': 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)'
       },
       backgroundSize: {

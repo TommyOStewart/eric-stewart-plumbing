@@ -29,10 +29,11 @@ export default function Contact() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-navy text-white py-16 md:py-20">
+      <section className="bg-charcoal texture-grid text-white py-16 md:py-24">
         <div className="container-max px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">Contact Us</h1>
+          <div className="max-w-2xl reveal">
+            <span className="section-label">Get In Touch</span>
+            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6">Contact Us</h1>
             <p className="text-xl text-gray-300">
               Ready to schedule service or have questions? We're here to help Cape Cod residents with all their plumbing and mechanical needs.
             </p>
@@ -40,8 +41,8 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Contact Content */}
-      <section className="section-padding bg-white">
+      {/* Contact Content - kept light for readability/usability */}
+      <section className="section-padding bg-white text-gray-900">
         <div className="container-max">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
@@ -59,7 +60,7 @@ export default function Contact() {
                   </p>
                   <p className="text-gray-600">
                     For immediate assistance, call us at{' '}
-                    <a href={PHONE_LINK} className="text-accent font-semibold">{PHONE_NUMBER}</a>
+                    <a href={PHONE_LINK} className="text-rust font-semibold">{PHONE_NUMBER}</a>
                   </p>
                 </div>
               ) : (
@@ -75,7 +76,7 @@ export default function Contact() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-rust focus:border-rust"
                     />
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -90,7 +91,7 @@ export default function Contact() {
                         required
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-rust focus:border-rust"
                       />
                     </div>
                     <div>
@@ -103,7 +104,7 @@ export default function Contact() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-rust focus:border-rust"
                       />
                     </div>
                   </div>
@@ -116,7 +117,7 @@ export default function Contact() {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-rust focus:border-rust"
                     >
                       <option value="">Select a service...</option>
                       <option value="emergency">Emergency Plumbing</option>
@@ -139,7 +140,7 @@ export default function Contact() {
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-accent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-rust focus:border-rust"
                       placeholder="Tell us about your plumbing or mechanical needs..."
                     />
                   </div>
@@ -155,42 +156,42 @@ export default function Contact() {
               <h2 className="text-2xl font-heading font-bold text-gray-900 mb-6">Get in Touch</h2>
               
               {/* Quick Contact */}
-              <div className="bg-navy text-white rounded-lg p-6 mb-6">
+              <div className="bg-charcoal text-white rounded-lg p-6 mb-6 shadow-rugged">
                 <h3 className="text-lg font-bold mb-4">Need Immediate Help?</h3>
-                <a href={PHONE_LINK} className="flex items-center gap-3 text-2xl font-bold text-white hover:text-accent-light transition-colors">
+                <a href={PHONE_LINK} className="flex items-center gap-3 text-2xl font-bold text-white hover:text-rust-light transition-colors">
                   <Phone className="w-6 h-6" />
                   {PHONE_NUMBER}
                 </a>
-                <p className="text-gray-300 mt-2 text-sm">24/7 Emergency Service Available</p>
+                <p className="text-gray-400 mt-2 text-sm">24/7 Emergency Service Available</p>
               </div>
 
               {/* Contact Details */}
               <div className="space-y-4">
                 <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
-                  <Mail className="w-5 h-5 text-accent mt-0.5" />
+                  <Mail className="w-5 h-5 text-rust mt-0.5" />
                   <div>
                     <div className="font-semibold text-gray-900">Email</div>
-                    <a href="mailto:info@emsenterprises.com" className="text-gray-600 hover:text-accent">
+                    <a href="mailto:info@emsenterprises.com" className="text-gray-600 hover:text-rust">
                       info@emsenterprises.com
                     </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
-                  <MapPin className="w-5 h-5 text-accent mt-0.5" />
+                  <MapPin className="w-5 h-5 text-rust mt-0.5" />
                   <div>
                     <div className="font-semibold text-gray-900">Service Area</div>
                     <div className="text-gray-600">Falmouth, MA & all of Cape Cod</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg">
-                  <Clock className="w-5 h-5 text-accent mt-0.5" />
+                  <Clock className="w-5 h-5 text-rust mt-0.5" />
                   <div>
                     <div className="font-semibold text-gray-900">Business Hours</div>
                     <div className="text-gray-600 text-sm">
                       <div>{BUSINESS_HOURS.regular}</div>
                       <div>{BUSINESS_HOURS.saturday}</div>
                       <div>{BUSINESS_HOURS.sunday}</div>
-                      <div className="text-accent font-medium mt-1">{BUSINESS_HOURS.emergency}</div>
+                      <div className="text-rust font-medium mt-1">{BUSINESS_HOURS.emergency}</div>
                     </div>
                   </div>
                 </div>

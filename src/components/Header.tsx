@@ -4,7 +4,6 @@ import { Phone, Menu, X } from 'lucide-react'
 import { PHONE_NUMBER, PHONE_LINK, IMAGES } from '../data/constants'
 import PlumbingLogo from './PlumbingLogo'
 
-
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services' },
@@ -18,14 +17,14 @@ export default function Header() {
   const location = useLocation()
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <header className="bg-charcoal border-b border-charcoal-border sticky top-0 z-50 texture-brushed">
       {/* Top bar */}
-      <div className="bg-navy text-white">
+      <div className="bg-charcoal-light border-b border-charcoal-border">
         <div className="container-max px-4 sm:px-6 lg:px-8 py-2 flex justify-between items-center text-sm">
-          <span className="hidden sm:block">Serving Cape Cod & Barnstable County</span>
+          <span className="hidden sm:block text-gray-400 tracking-wide uppercase text-xs">Serving Cape Cod & Barnstable County</span>
           <div className="flex items-center gap-4 mx-auto sm:mx-0">
-            <span className="text-gray-300">24/7 Emergency Service</span>
-            <a href={PHONE_LINK} className="flex items-center gap-1 font-bold text-white hover:text-accent-light transition-colors">
+            <span className="text-rust font-semibold text-xs uppercase tracking-wider">24/7 Emergency Service</span>
+            <a href={PHONE_LINK} className="flex items-center gap-1 font-bold text-white hover:text-rust-light transition-colors">
               <Phone className="w-4 h-4" />
               {PHONE_NUMBER}
             </a>
@@ -42,16 +41,15 @@ export default function Header() {
               <img
                 src={IMAGES.logo}
                 alt="EMS Enterprises Logo"
-                className="h-20 md:h-24 w-auto rounded-md shadow-rugged group-hover:scale-105 transition-transform duration-300 border-2 border-navy/10"
+                className="h-20 md:h-24 w-auto rounded-md shadow-glow-rust group-hover:scale-105 transition-transform duration-300 border-2 border-rust/40"
               />
-              <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-rust rounded-full border-2 border-white shadow" />
+              <span className="absolute -bottom-1 -right-1 w-4 h-4 bg-rust rounded-full border-2 border-charcoal shadow" />
             </div>
             <div className="hidden sm:flex flex-col justify-center">
-              <div className="text-2xl font-heading font-bold text-navy leading-none">EMS Enterprises</div>
-              <PlumbingLogo size="sm" className="text-navy mt-1" />
+              <div className="text-2xl font-heading font-bold text-white leading-none tracking-wide">EMS ENTERPRISES</div>
+              <PlumbingLogo size="lg" className="text-gray-300 mt-1" />
             </div>
           </Link>
-
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
@@ -59,10 +57,10 @@ export default function Header() {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-sm font-semibold uppercase tracking-wide transition-colors ${
                   location.pathname === item.href
-                    ? 'text-accent'
-                    : 'text-gray-700 hover:text-accent'
+                    ? 'text-rust'
+                    : 'text-gray-300 hover:text-rust'
                 }`}
               >
                 {item.name}
@@ -80,7 +78,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden p-2 text-gray-700"
+            className="md:hidden p-2 text-gray-200"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -90,7 +88,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
+        <div className="md:hidden bg-charcoal-light border-t border-charcoal-border">
           <div className="px-4 py-4 space-y-2">
             {navigation.map((item) => (
               <Link
@@ -98,15 +96,15 @@ export default function Header() {
                 to={item.href}
                 className={`block px-4 py-3 rounded-md text-base font-medium ${
                   location.pathname === item.href
-                    ? 'bg-gray-100 text-accent'
-                    : 'text-gray-700 hover:bg-gray-50'
+                    ? 'bg-charcoal-lighter text-rust'
+                    : 'text-gray-300 hover:bg-charcoal-lighter'
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="pt-4 border-t border-gray-200">
+            <div className="pt-4 border-t border-charcoal-border">
               <a href={PHONE_LINK} className="btn-primary w-full justify-center">
                 <Phone className="w-5 h-5" />
                 Call {PHONE_NUMBER}

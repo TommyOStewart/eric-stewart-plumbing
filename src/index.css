@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -8,11 +8,11 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    @apply font-sans antialiased text-gray-900 bg-white;
+    @apply font-sans antialiased text-gray-100 bg-charcoal;
   }
-  
+
   h1, h2, h3 {
     @apply font-heading;
   }
@@ -20,7 +20,7 @@
 
 @layer components {
   .btn-primary {
-    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-white font-semibold rounded-md hover:bg-accent-hover transition-colors duration-200 shadow-rugged focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 overflow-hidden;
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-white font-semibold rounded-md hover:bg-accent-hover transition-colors duration-200 shadow-rugged focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-charcoal overflow-hidden;
   }
 
   .btn-primary::after,
@@ -42,25 +42,35 @@
   .btn-outline:hover::after {
     animation: shine 1s ease-in-out;
   }
-  
+
   .btn-secondary {
-    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 bg-navy text-white font-semibold rounded-md hover:bg-navy-dark transition-colors duration-200 shadow-rugged focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2 overflow-hidden;
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 bg-rust text-white font-semibold rounded-md hover:bg-rust-hover transition-colors duration-200 shadow-rugged focus:outline-none focus:ring-2 focus:ring-rust focus:ring-offset-2 focus:ring-offset-charcoal overflow-hidden;
   }
-  
+
   .btn-outline {
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-white/70 text-white font-semibold rounded-md hover:bg-white hover:text-charcoal transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-charcoal overflow-hidden;
+  }
+
+  .btn-outline-dark {
     @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-navy text-navy font-semibold rounded-md hover:bg-navy hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2 overflow-hidden;
   }
-  
+
   .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-20;
+    @apply px-4 sm:px-6 lg:px-8 py-20 md:py-28;
   }
-  
+
   .container-max {
     @apply max-w-6xl mx-auto;
   }
-  
+
+  /* Dark industrial card */
   .card {
-    @apply relative bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-rugged-lg transition-all duration-300 hover:-translate-y-1;
+    @apply relative bg-charcoal-lighter border border-charcoal-border rounded-lg shadow-rugged hover:shadow-glow-rust transition-all duration-300 hover:-translate-y-1;
+  }
+
+  /* Light card, used only on the Contact page */
+  .card-light {
+    @apply bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow;
   }
 
   /* Rugged texture helpers */
@@ -69,7 +79,7 @@
   }
 
   .texture-hatch {
-    background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.035) 0px, rgba(0,0,0,0.035) 1px, transparent 1px, transparent 10px);
+    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 10px);
   }
 
   .texture-grid {
@@ -77,36 +87,57 @@
     background-size: 28px 28px;
   }
 
+  /* Diagonal cut-metal section dividers */
+  .clip-diagonal-down {
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+  }
+  .clip-diagonal-up {
+    clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
+  }
+  .clip-diagonal-both {
+    clip-path: polygon(0 0, 100% 3%, 100% 97%, 0 100%);
+  }
+
   /* Corner rivet accents */
   .rivets::before,
   .rivets::after {
     content: '';
     position: absolute;
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
     border-radius: 9999px;
     background: radial-gradient(circle at 35% 35%, #d1d5db, #6b7280 70%);
-    box-shadow: inset 0 0 1px rgba(0,0,0,0.6);
-    top: 6px;
+    box-shadow: inset 0 0 1px rgba(0,0,0,0.7), 0 1px 2px rgba(0,0,0,0.5);
+    top: 8px;
+    z-index: 10;
   }
-  .rivets::before {
-    left: 6px;
-  }
-  .rivets::after {
-    right: 6px;
-  }
+  .rivets::before { left: 8px; }
+  .rivets::after { right: 8px; }
 
   .icon-hover:hover {
     animation: wiggle 0.5s ease-in-out;
   }
 
-  .reveal {
-    opacity: 0;
-    animation: fadeUp 0.7s ease-out forwards;
+  /* Reveal classes intentionally do nothing visually now (kept as no-ops
+     so existing className references don't break) -- content is always
+     visible immediately, no opacity:0 risk. */
+  .reveal,
+  .reveal-delay-1,
+  .reveal-delay-2,
+  .reveal-delay-3,
+  .reveal-delay-4 {
+    opacity: 1;
   }
 
-  .reveal-delay-1 { animation-delay: 0.1s; }
-  .reveal-delay-2 { animation-delay: 0.2s; }
-  .reveal-delay-3 { animation-delay: 0.3s; }
-  .reveal-delay-4 { animation-delay: 0.4s; }
+
+  /* Oversized stat numerals for pull-quote style callouts */
+  .stat-numeral {
+    @apply font-heading font-bold text-rust leading-none;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    text-shadow: 0 4px 0 rgba(0,0,0,0.35);
+  }
+
+  .section-label {
+    @apply inline-block text-xs font-bold tracking-[0.25em] uppercase text-rust mb-3;
+  }
 }
