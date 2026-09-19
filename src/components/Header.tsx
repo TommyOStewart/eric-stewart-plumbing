@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Phone, Menu, X } from 'lucide-react'
 import { PHONE_NUMBER, PHONE_LINK, IMAGES } from '../data/constants'
+import PlumberWordmark from './PlumberWordmark'
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -42,8 +43,8 @@ export default function Header() {
               className="h-14 w-auto"
             />
             <div className="hidden sm:block">
-              <div className="text-xl font-heading font-bold text-navy">EMS Enterprises</div>
-              <div className="text-xs text-gray-600 tracking-wide">Plumbing & Mechanical</div>
+              <PlumberWordmark />
+              <div className="text-xs text-gray-600 tracking-wide">EMS Enterprises &middot; Plumbing & Mechanical</div>
             </div>
           </Link>
 
